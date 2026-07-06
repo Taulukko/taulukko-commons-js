@@ -22,10 +22,10 @@ class InjectController {
     let key: string;
 
     if (factory instanceof InjectorFactory) {
-      key = factory.build().constructor.name;
+      key = (factory.build() as any).constructor.name;
     }
     else {
-      key = factory.constructor.name;
+      key = (factory as any).constructor.name;
     }
 
     return this.registerByName(key, factory);

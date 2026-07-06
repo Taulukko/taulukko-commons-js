@@ -109,7 +109,7 @@ class StringsUtil {
         }
 
         for (i = 0; i < str.length; i++) {
-            chr = str.codePointAt(i);
+            chr = str.codePointAt(i) ?? 0;
             hashCode = ((hashCode << 5) - hashCode) + chr;
             hashCode |= 0;
         }
