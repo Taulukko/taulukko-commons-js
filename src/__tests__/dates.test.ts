@@ -22,12 +22,12 @@ test("Parse date", () => {
     expect(DatesUtil.parseYYYYMMDD("20191229")).toEqual(new Date(2019, JAVASCRIPT_MONTHS.DEC, 29));
     expect(DatesUtil.parseYYYYMMDD("20192429")).toEqual(new Date(2020, JAVASCRIPT_MONTHS.DEC, 29));
     expect(DatesUtil.parseYYYYMMDD("20191232")).toEqual(new Date(2020, JAVASCRIPT_MONTHS.JAN, 1));
-    expect(() => { DatesUtil.parseYYYYMMDD(""); }).toThrowError("Date format YYYYMMDD incorrect!");
-    expect(() => { DatesUtil.parseYYYYMMDD("201912"); }).toThrowError("Date format YYYYMMDD incorrect!");
-    expect(() => { DatesUtil.parseYYYYMMDD("201912012200"); }).toThrowError("Date format YYYYMMDD incorrect!");
-    expect(() => { DatesUtil.parseYYYYMMDD("ABCD1229"); }).toThrowError("Year must be numeric integer");
-    expect(() => { DatesUtil.parseYYYYMMDD("2019AB29"); }).toThrowError("Month must be numeric integer");
-    expect(() => { DatesUtil.parseYYYYMMDD("201919AB"); }).toThrowError("Day must be numeric integer");
+    expect(() => { DatesUtil.parseYYYYMMDD(""); }).toThrow("Date format YYYYMMDD incorrect!");
+    expect(() => { DatesUtil.parseYYYYMMDD("201912"); }).toThrow("Date format YYYYMMDD incorrect!");
+    expect(() => { DatesUtil.parseYYYYMMDD("201912012200"); }).toThrow("Date format YYYYMMDD incorrect!");
+    expect(() => { DatesUtil.parseYYYYMMDD("ABCD1229"); }).toThrow("Year must be numeric integer");
+    expect(() => { DatesUtil.parseYYYYMMDD("2019AB29"); }).toThrow("Month must be numeric integer");
+    expect(() => { DatesUtil.parseYYYYMMDD("201919AB"); }).toThrow("Day must be numeric integer");
 });
 
 test("Get day", () => {
@@ -86,7 +86,7 @@ test("Add days ", () => {
 test("Parse date YYYYMMDDHHMMSS", () => {
     const expectedDate: Date = new Date(2019, JAVASCRIPT_MONTHS.DEC, 29, 14, 30, 15);
     expect(DatesUtil.parseYYYYMMDDHHMMSS("20191229143015")).toEqual(expectedDate);
-    expect(() => { DatesUtil.parseYYYYMMDDHHMMSS("20191229"); }).toThrowError("Date format YYYYMMDDHHMMSS incorrect!");
+    expect(() => { DatesUtil.parseYYYYMMDDHHMMSS("20191229"); }).toThrow("Date format YYYYMMDDHHMMSS incorrect!");
 });
 
 test("toString limit size", () => {
@@ -125,16 +125,16 @@ test("parse with hour/minute/second", () => {
 });
 
 test("parseYYYYMMDDHHMMSS with invalid data", () => {
-    expect(() => { DatesUtil.parseYYYYMMDDHHMMSS(""); }).toThrowError("Date format YYYYMMDDHHMMSS incorrect!");
-    expect(() => { DatesUtil.parseYYYYMMDDHHMMSS("20191229"); }).toThrowError("Date format YYYYMMDDHHMMSS incorrect!");
-    expect(() => { DatesUtil.parseYYYYMMDDHHMMSS("201912291430"); }).toThrowError("Date format YYYYMMDDHHMMSS incorrect!");
-    expect(() => { DatesUtil.parseYYYYMMDDHHMMSS("201912291430150"); }).toThrowError("Date format YYYYMMDDHHMMSS incorrect!");
-    expect(() => { DatesUtil.parseYYYYMMDDHHMMSS("ABCD1229143015"); }).toThrowError("Year must be numeric integer");
-    expect(() => { DatesUtil.parseYYYYMMDDHHMMSS("2019ABCD143015"); }).toThrowError("Month must be numeric integer");
-    expect(() => { DatesUtil.parseYYYYMMDDHHMMSS("201912AB143015"); }).toThrowError("Day must be numeric integer");
-    expect(() => { DatesUtil.parseYYYYMMDDHHMMSS("20191229AB3015"); }).toThrowError("Time must be numeric integer");
-    expect(() => { DatesUtil.parseYYYYMMDDHHMMSS("2019122914AB15"); }).toThrowError("Time must be numeric integer");
-    expect(() => { DatesUtil.parseYYYYMMDDHHMMSS("201912291430AB"); }).toThrowError("Time must be numeric integer");
+    expect(() => { DatesUtil.parseYYYYMMDDHHMMSS(""); }).toThrow("Date format YYYYMMDDHHMMSS incorrect!");
+    expect(() => { DatesUtil.parseYYYYMMDDHHMMSS("20191229"); }).toThrow("Date format YYYYMMDDHHMMSS incorrect!");
+    expect(() => { DatesUtil.parseYYYYMMDDHHMMSS("201912291430"); }).toThrow("Date format YYYYMMDDHHMMSS incorrect!");
+    expect(() => { DatesUtil.parseYYYYMMDDHHMMSS("201912291430150"); }).toThrow("Date format YYYYMMDDHHMMSS incorrect!");
+    expect(() => { DatesUtil.parseYYYYMMDDHHMMSS("ABCD1229143015"); }).toThrow("Year must be numeric integer");
+    expect(() => { DatesUtil.parseYYYYMMDDHHMMSS("2019ABCD143015"); }).toThrow("Month must be numeric integer");
+    expect(() => { DatesUtil.parseYYYYMMDDHHMMSS("201912AB143015"); }).toThrow("Day must be numeric integer");
+    expect(() => { DatesUtil.parseYYYYMMDDHHMMSS("20191229AB3015"); }).toThrow("Time must be numeric integer");
+    expect(() => { DatesUtil.parseYYYYMMDDHHMMSS("2019122914AB15"); }).toThrow("Time must be numeric integer");
+    expect(() => { DatesUtil.parseYYYYMMDDHHMMSS("201912291430AB"); }).toThrow("Time must be numeric integer");
 });
 
 test("toString edge cases", () => {
