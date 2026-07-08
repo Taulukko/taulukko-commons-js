@@ -28,7 +28,6 @@
     "test": "clear && jest"
   },
   "devDependencies": {
-    "@google-cloud/nodejs-repo-tools": "^3.3.0",
     "@types/express": "^5.0.6",
     "@types/jest": "^29.5.14",
     "jest": "^29.7.0",
